@@ -413,19 +413,22 @@ aside .social-icons #social-sidebar li a:hover {
   .navigation .menu-btn {
     display: block !important;
     right: 1.5rem !important;
+    position: relative;
+    z-index: 999 !important;
   }
   .navigation nav {
     position: fixed;
-    top: 0;
+    top: -20px;
     left: 0;
     width: 100vw;
     opacity: 0.98;
     visibility: hidden;
+    z-index: 99 !important;
   }
   .navigation nav.open {
     visibility: visible;
   }
-  .navigation nav .menu-nav {
+  .navigation nav .list {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -440,37 +443,36 @@ aside .social-icons #social-sidebar li a:hover {
         -ms-flex-pack: center;
             justify-content: center;
     height: 100vh;
-    overflow: hidden;
-    background-color: #272727;
+    background-color: #062a5a;
     list-style-type: none;
     padding-right: 1rem;
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    z-index: 1000 !important;
+    font-family: 'Allura Regular';
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    -webkit-transition: all 0.5s ease-in;
+    transition: all 0.5s ease-in;
   }
-  .navigation nav .menu-nav.open {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  .navigation nav .menu-nav li {
-    -webkit-transform: translateX(100vw);
-            transform: translateX(100vw);
-  }
-  .navigation nav .menu-nav li.open {
+  .navigation nav .list.open {
     -webkit-transform: translateX(0);
             transform: translateX(0);
   }
-  .navigation nav .menu-nav li.active > a {
-    color: #ff652f;
-    border-bottom: 3px solid #ff652f;
+  .navigation nav .list li {
+    -webkit-transform: translateX(100vw);
+            transform: translateX(100vw);
   }
-  .navigation nav .menu-nav__link {
+  .navigation nav .list li.open {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  .navigation nav .list li a {
     display: inline-block;
     font-size: 2rem;
-    text-transform: uppercase;
+    text-transform: lowercase;
     padding: 1rem 0;
     font-weight: 300;
   }
-  .navigation nav .menu-nav__link:hover {
+  .navigation nav .list li a:hover {
     color: #ff652f;
   }
   main {
@@ -754,6 +756,8 @@ body .container .navigation .menu-btn_burger {
   width: 25px;
   height: 3px;
   background: #7ef9ff;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 body .container .navigation .menu-btn_burger::before {

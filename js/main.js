@@ -2,6 +2,30 @@ const allNavigation = document.querySelectorAll(
   '.list li, .brand, #name, .main-body h1, .main-body h2, .details, .get-in-touch, #social-sidebar, #social-sidebar li, .menu-btn'
 );
 
+const hamburger = document.querySelector('.menu-btn_burger');
+const menu_btn = document.querySelector('.menu-btn');
+const nav = document.querySelector('nav');
+const list = document.querySelector('.list');
+const listItems = document.querySelectorAll('.list li');
+
+let showMenu = false;
+menu_btn.addEventListener('click', () => {
+  if (!showMenu) {
+    hamburger.classList.add('open');
+    nav.classList.add('open');
+    list.classList.add('open');
+    listItems.forEach(listItem => listItem.classList.add('open'));
+    showMenu = true;
+  } else {
+    hamburger.classList.remove('open');
+    nav.classList.remove('open');
+    list.classList.remove('open');
+    listItems.forEach(listItem => listItem.classList.remove('open'));
+    showMenu = false;
+  }
+})
+
+
 
 window.addEventListener('load', e => {
   allNavigation.forEach(all => {
